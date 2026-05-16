@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Register</title>
+    <link rel="stylesheet" href="r.css" />
+  </head>
+
+  <body>
+    <div class="register-box">
+      <h2>إنشاء حساب</h2>
+
+      <form id="registerForm">
+        <div class="input-box">
+          <input type="text" id="name" placeholder="الاسم بالكامل" />
+        </div>
+
+        <div class="input-box">
+          <input type="email" id="email" placeholder="البريد الإلكتروني" />
+        </div>
+
+        <div class="input-box">
+          <input type="password" id="password" placeholder="كلمة المرور" />
+        </div>
+
+        <div class="input-box">
+          <input type="text" id="phone" placeholder="رقم الهاتف" />
+        </div>
+
+        <div class="input-box">
+          <select id="role">
+            <option value="">اختر نوع الحساب</option>
+
+            <option value="client">عميل</option>
+
+            <option value="worker">صنايعي</option>
+          </select>
+        </div>
+
+        <button type="submit">إنشاء حساب</button>
+      </form>
+
+      <div class="text">
+        لديك حساب بالفعل ؟
+        <a href="/login/login.html"> تسجيل الدخول </a>
+      </div>
+    </div>
+
+    <script>
+      let form = document.getElementById("registerForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let phone = document.getElementById("phone").value;
+        let role = document.getElementById("role").value;
+
+        if (
+          name === "" ||
+          email === "" ||
+          password === "" ||
+          phone === "" ||
+          role === ""
+        ) {
+          alert("من فضلك املأ جميع الحقول");
+        } else {
+          localStorage.setItem("name", name);
+          localStorage.setItem("email", email);
+          localStorage.setItem("password", password);
+          localStorage.setItem("phone", phone);
+          localStorage.setItem("role", role);
+
+          alert("تم إنشاء الحساب بنجاح 😎");
+
+          window.location.href = "/login/login.html";
+        }
+      });
+    </script>
+  </body>
+</html>

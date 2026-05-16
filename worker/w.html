@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>لوحة الصنايعي</title>
+    <link rel="stylesheet" href="w.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+
+    <nav>
+      <h2>صنايعي</h2>
+
+      <button onclick="logout()">تسجيل خروج</button>
+    </nav>
+
+    <!-- Header -->
+
+    <section class="header">
+      <h1>مرحباً بك يا صنايعي 👷</h1>
+
+      <p>يمكنك إدارة خدماتك وطلباتك من هنا</p>
+    </section>
+
+    <!-- Dashboard -->
+
+    <section class="dashboard">
+      <div class="card">
+        <h3>إضافة خدمة</h3>
+
+        <p>أضف خدمة جديدة للعملاء</p>
+
+        <button>إضافة</button>
+      </div>
+
+      <div class="card">
+        <h3>تعديل البروفايل</h3>
+
+        <p>قم بتعديل بياناتك الشخصية</p>
+
+        <button>تعديل</button>
+      </div>
+
+      <div class="card">
+        <h3>الطلبات</h3>
+
+        <p>شاهد طلبات العملاء</p>
+
+        <button>عرض</button>
+      </div>
+
+      <div class="card">
+        <h3>التقييمات</h3>
+
+        <p>راجع تقييمات العملاء</p>
+
+        <button>مشاهدة</button>
+      </div>
+    </section>
+
+    <script>
+      let role = localStorage.getItem("role");
+
+      if (role !== "worker") {
+        alert("غير مسموح لك بالدخول");
+
+        window.location.href = "../login.html";
+      }
+
+      function logout() {
+        sessionStorage.clear();
+
+        window.location.href = "/login/login.html";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>صنايعي</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+
+    <nav>
+      <h1>صنايعي</h1>
+
+      <ul>
+        <li>الرئيسية</li>
+        <li>الخدمات</li>
+        <li>الصنايعية</li>
+        <li>تواصل معنا</li>
+      </ul>
+    </nav>
+
+    <!-- Hero -->
+
+    <section class="hero">
+      <h2>دور على أفضل صنايعي بسهولة</h2>
+
+      <p>سباك - كهربائي - نجار - نقاش وكل اللي تحتاجه</p>
+
+      <button>ابدأ الآن</button>
+    </section>
+
+    <!-- Services -->
+
+    <section class="services">
+      <h2>الخدمات</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>كهربائي</h3>
+          <p>.أفضل كهربائيين بخبرة عالي</p>
+        </div>
+
+        <div class="card">
+          <h3>سباك</h3>
+          <p>.حل جميع مشاكل السباكة بسرعة</p>
+        </div>
+
+        <div class="card">
+          <h3>نجار</h3>
+          <p>.تشطيب وأثاث بأعلى جودة</p>
+        </div>
+
+        <div class="card">
+          <h3>نقاش</h3>
+          <p>.ادهن و شطب شقتك بمزاج</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workers -->
+
+    <section class="workers">
+      <div class="search-box">
+        <input type="text" id="search" placeholder="...ابحث عن صنايعي" />
+      </div>
+      <h2>&starf; صنايعية مميزين &starf;</h2>
+
+      <div class="worker-container">
+        <div class="worker">
+          <img src="../images/electrician.jpg" alt="" />
+          <h3>أحمد محمد</h3>
+          <p class="job">كهربائي</p>
+        </div>
+
+        <div class="worker">
+          <img src="../images//plumber.jpg" alt="" />
+          <h3>محمد علي</h3>
+          <p class="job">سباك</p>
+        </div>
+
+        <div class="worker">
+          <img src="../images//joiner.jpg" alt="" />
+          <h3>عبدالله حسن</h3>
+          <p class="job">نجار</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+      <p>جميع الحقوق محفوظة © 2026</p>
+    </footer>
+    <script>
+      let searchInput = document.getElementById("search");
+
+      let cards = document.querySelectorAll(".worker");
+
+      searchInput.addEventListener("keyup", function () {
+        let searchValue = searchInput.value.toLowerCase();
+
+        cards.forEach(function (card) {
+          let job = card.querySelector(".job").textContent.toLowerCase();
+
+          if (job.includes(searchValue)) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
